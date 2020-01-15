@@ -1,6 +1,8 @@
 package br.com.app.brasilprev.service;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
@@ -35,7 +37,7 @@ public class ProdutoServiceTeste {
 
 		assertNotNull(listProd);
 
-		assertEquals(1,listProd.size());
+		assertTrue(listProd.size()>0);
 
 	}
 	
@@ -55,7 +57,7 @@ public class ProdutoServiceTeste {
 
 		Optional<Produto> prod = produtoServ.buscar(45l);
 
-		assertEquals(null,prod.get());
+		assertFalse(prod.isPresent());
 
 	}
 

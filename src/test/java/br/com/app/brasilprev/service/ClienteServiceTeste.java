@@ -1,6 +1,8 @@
 package br.com.app.brasilprev.service;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
@@ -30,8 +32,7 @@ public class ClienteServiceTeste {
 		
 		assertNotNull(listCliente);
 		
-		assertEquals(1, listCliente.size());		
-		
+		assertTrue(listCliente.size()>0);		
 	}
 	
 	@Test
@@ -50,7 +51,7 @@ public class ClienteServiceTeste {
 		
 		Optional<Cliente> cliente = clienteServ.buscar(50l);
 		
-		assertEquals(null, cliente.get());		
+		assertFalse(cliente.isPresent());		
 	}
 	
 	@Test
