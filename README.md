@@ -49,4 +49,5 @@ Implemente uma api rest utilizando spring boot com java 8.
 		
 ## Link Swagger
 
-	your_domain/v2/api-docs
+	Heroku - https://brlprev-api.herokuapp.com/swagger-ui.html (senha cadastrada no banco- tabela users)
+	local - your_domain/v2/api-docs
