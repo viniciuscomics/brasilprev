@@ -14,9 +14,13 @@ import br.com.app.brasilprev.service.ClienteService;
 
 @Service
 public class ClienteServiceImpl implements ClienteService{
-
+	
+	private ClienteRepository clienteRepository;
+	
 	@Autowired
-	ClienteRepository clienteRepository;
+	public ClienteServiceImpl(ClienteRepository clienteRepository) {
+		this.clienteRepository = clienteRepository;
+	}
 	
 	@Override
 	public Cliente criar(Cliente cliente) {

@@ -7,18 +7,22 @@
 	<groupId>br.com.app</groupId>
 	<artifactId>brasilprev</artifactId>
 	<version>1.0.0</version>
-	<name>pedidos-brasilprev</name>
+	<name>brasilprev</name>
 	<description>API Cadastro de Produtos</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.8.RELEASE</version>
+		<version>2.2.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 
@@ -113,9 +117,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<forkCount>0</forkCount>
-				</configuration>
+<!-- 				<configuration> -->
+<!-- 					<forkCount>0</forkCount> -->
+<!-- 				</configuration> -->
 			</plugin>
 		</plugins>
 	</build>

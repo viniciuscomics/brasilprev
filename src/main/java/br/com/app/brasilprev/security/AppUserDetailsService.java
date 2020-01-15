@@ -11,19 +11,21 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.com.app.brasilprev.model.Cliente;
+import br.com.app.brasilprev.model.Users;
 import br.com.app.brasilprev.repository.ClienteRepository;
+import br.com.app.brasilprev.repository.UsersRepository;
 
 @Service
 public class AppUserDetailsService implements UserDetailsService{
 
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private UsersRepository usersRepository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<Cliente> user = clienteRepository.findByEmail(username);
-		Cliente cliente = user.orElseThrow(()->new UsernameNotFoundException("Usuario ou senha invalidos"));
+		Optional<Users> opt = usersRepository.findByEmail(username);
+		Users user = opt.orElseThrow(()->new UsernameNotFoundException("Usuario ou senha invalidos"));
 		
-		return new UsuarioSistema(cliente,new HashSet<SimpleGrantedAuthority>());
+		return new UsuarioSistema(user,new HashSet<SimpleGrantedAuthority>());
 	}	
 }

@@ -17,12 +17,15 @@ import br.com.app.brasilprev.service.ProdutoService;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService{
-
-	@Autowired
-	private ProdutoRepository produtoRepository;
+	
+	private ProdutoRepository produtoRepository;	
+	private CategoriaRepository categoriaRepository;
 	
 	@Autowired
-	private CategoriaRepository categoriaRepository;
+	public ProdutoServiceImpl(ProdutoRepository produtoRepository, CategoriaRepository categoriaRepository) {		
+		this.produtoRepository = produtoRepository;
+		this.categoriaRepository = categoriaRepository;
+	}
 	
 	@Override
 	public Produto criar(Produto produto) {

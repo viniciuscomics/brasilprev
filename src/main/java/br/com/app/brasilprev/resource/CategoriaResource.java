@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.Authorization;
 
-@Api(description = "Realiza cadastro e busca de categoria", tags = "Categorias",
+@Api(value = "Realiza cadastro e busca de categoria", tags = "Categorias",
 authorizations = {@Authorization(value="basicAuth")})
 public interface CategoriaResource {
 	

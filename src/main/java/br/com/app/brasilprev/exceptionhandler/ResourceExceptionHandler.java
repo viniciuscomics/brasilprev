@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import br.com.app.brasilprev.exceptionhandler.SistemaExceptionHandler.Erro;
+import br.com.app.brasilprev.exception.CategoriaInexistenteException;
 import br.com.app.brasilprev.exception.ProdutoInexistenteException;
 
 @ControllerAdvice
@@ -20,9 +21,9 @@ public class ResourceExceptionHandler extends ResponseEntityExceptionHandler{
 	private MessageSource messageSource;
 	
 	@ExceptionHandler({ProdutoInexistenteException.class})
-	public ResponseEntity<Object> handlePessoaInexistenteOuInativaException(ProdutoInexistenteException ex){
+	public ResponseEntity<Object> handleProdutoInexistenteException(ProdutoInexistenteException ex){
 		return parseResponse(ex,"recurso.nao-encontrado"); 
-	}
+	}	
 
 	private ResponseEntity<Object> parseResponse(Exception ex, String chave) {
 		String msgUser = messageSource.getMessage(chave,null,LocaleContextHolder.getLocale());

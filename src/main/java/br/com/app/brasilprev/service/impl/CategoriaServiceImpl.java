@@ -12,9 +12,13 @@ import br.com.app.brasilprev.service.CategoriaService;
 
 @Service
 public class CategoriaServiceImpl implements CategoriaService{
-
+	
+	private CategoriaRepository categoriaRepository;	
+	
 	@Autowired
-	CategoriaRepository categoriaRepository;	
+	public CategoriaServiceImpl(CategoriaRepository categoriaRepository) {
+		this.categoriaRepository = categoriaRepository;
+	}
 	
 	@Override
 	public Categoria criar(Categoria categoria) {		

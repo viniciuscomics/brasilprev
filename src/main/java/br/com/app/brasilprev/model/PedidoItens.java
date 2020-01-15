@@ -3,6 +3,7 @@ package br.com.app.brasilprev.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -54,6 +55,9 @@ public class PedidoItens implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "idProduto")
 	private Produto produto; 
+	
+	@Column(name = "produto")
+	private String prod;
 	
 	
 }

@@ -13,8 +13,12 @@ import br.com.app.brasilprev.service.PedidosItensService;
 @Service
 public class PedidoItensServiceImpl implements PedidosItensService{
 
+	private PedidoItensRepository pedidoItensRepository;
+	
 	@Autowired
-	PedidoItensRepository pedidoItensRepository;
+	public PedidoItensServiceImpl(PedidoItensRepository pedidoItensRepository) {
+		this.pedidoItensRepository = pedidoItensRepository;
+	}
 	
 	@Override
 	public PedidoItens criar(PedidoItens pedidoItens) {	

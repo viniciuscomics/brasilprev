@@ -14,7 +14,11 @@ import br.com.app.brasilprev.service.PedidoService;
 public class PedidoServiceImpl implements PedidoService{
 
 	@Autowired
-	PedidoRepository pedidoRepository;
+	private PedidoRepository pedidoRepository;
+	
+	public PedidoServiceImpl(PedidoRepository pedidoRepository) {
+		this.pedidoRepository = pedidoRepository;
+	}
 	
 	@Override
 	public Pedido criar(Pedido pedido) {		

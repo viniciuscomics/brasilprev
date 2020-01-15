@@ -1,17 +1,13 @@
 package br.com.app.brasilprev.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,34 +20,23 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode
-@Table(name = "pedido")
+@Table(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Pedido implements Serializable{
+public class Users implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@ApiModelProperty(notes = "ID Gerado pelo banco de dados")
-	private Long idPedido;
+	@ApiModelProperty(notes = "ID Gerado pelo banco de dados", example = "")
+	private Long id;
 	
 	@NotNull
-	private LocalDate data;
-	
+	private String nome;
 	@NotNull
-	@Size(min=3,max=20)	
-	private String status;
-	
+	private String email;
 	@NotNull
-	@Size(min=3,max=30)	
-	private String sessao;
-	
-	@NotNull
-	@ManyToOne
-	@JoinColumn(name = "idCliente")
-	private Cliente cliente;
-
+	private String senha;
 }

@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -17,19 +18,26 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import br.com.app.brasilprev.BrasilPrevApplication;
 import br.com.app.brasilprev.UtilsTest;
 import br.com.app.brasilprev.model.Categoria;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = {BrasilPrevApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CategoriaResourceTeste {
 
-	final String BASE_PATH = "http://localhost:8080/categorias";
+	@LocalServerPort
+	private int port;	
+	
+	private String BASE_PATH = "";
 
 	private RestTemplate restTemplate;
 	
 	@Before
 	public void setUp() throws Exception {
+		
+		BASE_PATH = "http://localhost:"+port+"/categorias";
+		
 		restTemplate = new RestTemplate(UtilsTest.getClientHttpRequestFactory());		
 	}
 

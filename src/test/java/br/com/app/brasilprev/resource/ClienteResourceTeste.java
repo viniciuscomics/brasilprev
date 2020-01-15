@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -25,10 +26,13 @@ import br.com.app.brasilprev.model.Cliente;
 import br.com.app.brasilprev.repository.ClienteRepository;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ClienteResourceTeste {
 
-	final String BASE_PATH = "http://localhost:8080/clientes";
+	@LocalServerPort
+	private int port;
+	
+	private String BASE_PATH = "";
 
 	private RestTemplate restTemplate;
 	
@@ -37,8 +41,8 @@ public class ClienteResourceTeste {
 
 	@Before
 	public void setUp() throws Exception {
-		restTemplate = new RestTemplate(UtilsTest.getClientHttpRequestFactory());
-		//clienteRepository.deleteAll();
+		BASE_PATH = "http://localhost:"+port+"/clientes";
+		restTemplate = new RestTemplate(UtilsTest.getClientHttpRequestFactory());		
 	}
 	
 	@Test

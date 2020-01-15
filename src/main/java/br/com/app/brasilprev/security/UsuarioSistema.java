@@ -6,19 +6,20 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 import br.com.app.brasilprev.model.Cliente;
+import br.com.app.brasilprev.model.Users;
 
 public class UsuarioSistema extends User{	
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Cliente user;
+	private Users user;
 	
-	public UsuarioSistema(Cliente user, Collection<? extends GrantedAuthority> authorities) {
+	public UsuarioSistema(Users user, Collection<? extends GrantedAuthority> authorities) {
 		super(user.getEmail(), user.getSenha(), authorities);
 		this.user = user;
 	}
 	
-	public Cliente getUser() {
+	public Users getUser() {
 		return user;
 	}
 

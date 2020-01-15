@@ -55,3 +55,9 @@ senha VARCHAR(150) NOT NULL
 );
 
 INSERT INTO users(nome, email, senha) values ('admin','admin@adm.com','$2a$10$gWZ0SdMFMVlAvw7oR6TxF.MwOKWThwbcm6APSBEU/pXyn4epkK0YW');
+
+INSERT INTO categoria(categoria) VALUES('limpeza');
+
+insert into produto(idProduto,produto,preco,quantidade,descricao,foto,idCategoria) values(1,'detergente',2.00,10,'Deterg. Ypê', null,1);
+
+INSERT INTO cliente(nome, email, senha,rua,cidade,bairro,cep,estado) values('teste','teste@teste.com','123456','rua teste', 'sao paulo', 'teste','12345678','Sao Paulo');
