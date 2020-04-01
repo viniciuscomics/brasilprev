@@ -20,7 +20,7 @@ Implemente uma api rest utilizando spring boot com java 8.
 	1. Apos ter baixado o projeto, abra um terminal de comando(ex: git bash)  no diretório do projeto.
 	2. Digite o comando "mvn clean package" e aguarde o fim da compilação.
 	Esse deve ser o primeiro serviço a ser iniciado, informações do projeto 
-	[aqui](https://github.com/viniciuscomics/atech-multi-module/tree/master/atech-config-server)
+	[aqui](https://github.com/viniciuscomics/atech-multi-module/tree/master/atech-config-server/)
        
 		
 ## Configurações da API - Propiedades da aplicacao
